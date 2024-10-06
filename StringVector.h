@@ -20,11 +20,13 @@ public:
 	void Print();
 
 	int BinarySearch(string search);
+	int AddSorted(string value);
 
 	vector<string>& getVectorCopy();
 
 private:
 	int BinarySearch(string search, int min, int max);
+	int AddSorted(string value, int min, int max);
 	vector<string> Vector;
 };
 #endif

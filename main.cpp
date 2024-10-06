@@ -10,13 +10,13 @@ using namespace std;
 
 // all files that are in Books folder
 string fileNames[] = {
-    "Dang",
-//    "AnneGables",
+//    "Dang",
+    "AnneGables",
     "CallWild",
-//    "Copperfield",
+    "Copperfield",
 //    "Dracula",
 //    "Emma",
-//    "GreatExpectations",
+    "GreatExpectations",
 //    "GrimmTales",
 //    "Hound",
 //    "Huckelberry",
@@ -29,7 +29,7 @@ const string FILETYPE = ".txt";
 
 
 // convert a string to only have alphabetical characters
-string to_word(string& String) {
+static string to_word(string& String) {
     string returnString;
     for (char c : String) {
         if (isalpha(c)) {
@@ -40,7 +40,7 @@ string to_word(string& String) {
 }
 
 // convert a string to only have lowercase letters
-string to_lower(string& String) 
+static string to_lower(string& String) 
 {
     string returnString;
     for (char c : String) {
@@ -72,7 +72,7 @@ void read_file_linked_list(string name)
         var = to_word(var);
         list.SortedInsert(var);
     }
-    // Get end time
+    // Get end time(before printing anything)
     clock_t time2 = clock();
     double run_time = (time2 - time1) / (double)CLOCKS_PER_SEC;
     cout << "Input File Path:        " << FOLDER << name << FILETYPE << endl;
@@ -81,7 +81,7 @@ void read_file_linked_list(string name)
     cout << "Run time:               " << run_time << " seconds\n";
 }
 
-void read_file_vector_inefficient(string name)
+void read_file_vector_linear(string name)
 {
     // Get start time
     clock_t time1 = clock();
@@ -103,7 +103,37 @@ void read_file_vector_inefficient(string name)
         if (list.LinearSearch(var) == -1)
             list.AddUnsorted(var);
     }
-    // Get end time
+    // Get end time(before printing anything)
+    clock_t time2 = clock();
+    double run_time = (time2 - time1) / (double)CLOCKS_PER_SEC;
+    cout << "Input File Path:        " << FOLDER << name << FILETYPE << endl;
+    cout << "Number of unique words: " << list.getVectorCopy().size() << endl;
+    cout << "Number of total words:  " << count << endl;
+    cout << "Run time:               " << run_time << " seconds\n";
+}
+
+void read_file_vector_binary(string name)
+{
+    // Get start time
+    clock_t time1 = clock();
+
+    // Some chunk of code
+    StringVector list = StringVector();
+    int count = 0;
+
+    ifstream stream = ifstream(FOLDER + name + FILETYPE);
+    if (stream.fail()) {
+        cout << "Failed to open file:    " << FOLDER << name << FILETYPE << endl;
+        return;
+    }
+    string var;
+    while (stream >> var) {
+        count++;
+        var = to_lower(var);
+        var = to_word(var);
+        list.AddSorted(var);
+    }
+    // Get end time(before printing anything)
     clock_t time2 = clock();
     double run_time = (time2 - time1) / (double)CLOCKS_PER_SEC;
     cout << "Input File Path:        " << FOLDER << name << FILETYPE << endl;
@@ -114,28 +144,17 @@ void read_file_vector_inefficient(string name)
 
 int main()
 {
-    /*
+    
     for (string name : fileNames) {
         std::cout << "Using linked list:\n";
         read_file_linked_list(name);
         std::cout << "\nUsing inefficient vector methods:\n";
-        read_file_vector_inefficient(name);
+        read_file_vector_linear(name);
+        std::cout << "\nUsing effecient vector methods:\n";
+        read_file_vector_binary(name);
         cout << endl;
+        
     }
-    */
-    StringVector test;
-    test.AddUnsorted("A");
-    test.AddUnsorted("B");
-    test.AddUnsorted("C");
-    test.AddUnsorted("D");
-    test.AddUnsorted("E");
-
-    //cout << test.BinarySearch("A") << endl;
-    //cout << test.BinarySearch("B") << endl;
-    //cout << test.BinarySearch("C") << endl;
-    //cout << test.BinarySearch("D") << endl;
-    cout << test.BinarySearch("E") << endl;
-
-
+    
 }
 
