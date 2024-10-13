@@ -1,0 +1,62 @@
+Script started on 2024-10-07 22:19:00-0500
+groups: cannot find name for group ID 762800513
+]0;ivanf@turing: ~/pf2project4ivanf@turing:~/pf2project4$ g++ -Wall *.cpp -o main
+]0;ivanf@turing: ~/pf2project4ivanf@turing:~/pf2project4$ ./main
+Using linked list methods:
+Input File Path:        Books/AnneGables.txt
+Number of unique words: 8221
+Number of total words:  102563
+Run time:               4.88951 seconds
+
+Using linear vector methods:
+Input File Path:        Books/AnneGables.txt
+Number of unique words: 8221
+Number of total words:  102563
+Run time:               2.2681 seconds
+
+Using binary vector methods:
+Input File Path:        Books/AnneGables.txt
+Number of unique words: 8221
+Number of total words:  102563
+Run time:               0.364562 seconds
+
+Using linked list methods:
+Input File Path:        Books/Copperfield.txt
+Number of unique words: 16872
+Number of total words:  354863
+Run time:               34.5111 seconds
+
+Using linear vector methods:
+Input File Path:        Books/Copperfield.txt
+Number of unique words: 16872
+Number of total words:  354863
+Run time:               10.7942 seconds
+
+Using binary vector methods:
+Input File Path:        Books/Copperfield.txt
+Number of unique words: 16872
+Number of total words:  354863
+Run time:               1.42654 seconds
+
+Using linked list methods:
+Input File Path:        Books/GreatExpectations.txt
+Number of unique words: 12204
+Number of total words:  184515
+Run time:               13.4549 seconds
+
+Using linear vector methods:
+Input File Path:        Books/GreatExpectations.txt
+Number of unique words: 12204
+Number of total words:  184515
+Run time:               4.98003 seconds
+
+Using binary vector methods:
+Input File Path:        Books/GreatExpectations.txt
+Number of unique words: 12204
+Number of total words:  184515
+Run time:               0.733179 seconds
+
+]0;ivanf@turing: ~/pf2project4ivanf@turing:~/pf2project4$ exit
+exit
+
+Script done on 2024-10-07 22:21:36-0500
